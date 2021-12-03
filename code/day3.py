@@ -2,15 +2,16 @@ from lib import *
 
 
 def part1(data):
-    gamma = 0
+    gamma = ''
     counts = count_ones_per_column(data)
 
     power = len(data[0]) - 2
     for digit in counts:
         if digit > len(data) / 2:
-            gamma += (2 ** power)
-        power -= 1
-    return (2 ** (len(data[0]) - 1) - 1 - gamma) * gamma
+            gamma += '1'
+        else:
+            gamma += '0'
+    return int(gamma, 2) * (2 ** (len(data[0])) - 1 - int(gamma, 2))
 
 
 def part2(data):
@@ -18,9 +19,9 @@ def part2(data):
     input_copy = data.copy()
     while len(input_copy) > 1:
         ones_per_column = count_ones_per_column(input_copy)
-        input_copy = list(filter(lambda x:
-                                 ((x[index] == '1' and ones_per_column[index] >= len(input_copy) / 2) or
-                                  (x[index] == '0' and ones_per_column[index] < len(input_copy) / 2)), input_copy))
+        input_copy = list(filter(lambda str:
+                                 ((str[index] == '1' and ones_per_column[index] >= len(input_copy) / 2) or
+                                  (str[index] == '0' and ones_per_column[index] < len(input_copy) / 2)), input_copy))
         index += 1
     oxygen = input_copy[0]
 

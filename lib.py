@@ -14,7 +14,7 @@ def read_input_list_line(path):
     f = open(path)
     data = []
     for line in f:
-        data.append(line)
+        data.append(line.strip("\n"))
     return data
 
 
