@@ -1,4 +1,4 @@
-from io import read_input_list_line
+from lib import read_input_list_line
 
 def part1(input):
     depth = 0

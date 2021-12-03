@@ -1,4 +1,4 @@
-from io import read_input_list_int
+from lib import read_input_list_int
 
 def part1(input):
     res = 0

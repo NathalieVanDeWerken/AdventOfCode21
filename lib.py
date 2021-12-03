@@ -16,3 +16,5 @@ def read_input_list_line(path):
     for line in f:
         data.append(line)
     return data
+
+
