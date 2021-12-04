@@ -1,31 +1,33 @@
 from lib import read_input_list_line
 
-def part1(input):
+
+def part1(data):
     depth = 0
     horizontal = 0
-    for instruc in input:
-        instruc = instruc.split(" ")
-        if instruc[0] == "forward":
-            horizontal += int(instruc[1])
-        elif instruc[0] == "down":
-            depth += int(instruc[1])
+    for instruction in data:
+        instruction = instruction.split(" ")
+        if instruction[0] == "forward":
+            horizontal += int(instruction[1])
+        elif instruction[0] == "down":
+            depth += int(instruction[1])
         else:
-            depth -= int(instruc[1])
+            depth -= int(instruction[1])
     return depth * horizontal
 
-def part2(input):
+
+def part2(data):
     depth = 0
     horizontal = 0
     aim = 0
-    for instruc in input:
-        instruc = instruc.split(" ")
-        if instruc[0] == "forward":
-            horizontal += int(instruc[1])
-            depth += aim * int(instruc[1])
-        elif instruc[0] == "down":
-            aim += int(instruc[1])
+    for instruction in data:
+        instruction = instruction.split(" ")
+        if instruction[0] == "forward":
+            horizontal += int(instruction[1])
+            depth += aim * int(instruction[1])
+        elif instruction[0] == "down":
+            aim += int(instruction[1])
         else:
-            aim -= int(instruc[1])
+            aim -= int(instruction[1])
     return depth * horizontal
 
 
