@@ -8,9 +8,8 @@ def part1(numbers, cards):
                 for ind3, bingo_number in enumerate(row):
                     if bingo_number == number:
                         cards[ind][ind2][ind3] = -1
-        #print(cards)
-        bingo_or_not, ind = checkBingo(cards)
-        if(bingo_or_not):
+        bingo_or_not, ind = check_bingo(cards)
+        if bingo_or_not:
             numbers2 = []
             for row in cards[ind]:
                 for n in row:
@@ -18,6 +17,7 @@ def part1(numbers, cards):
             return number * sum(list(filter(lambda x: x != -1, numbers2)))
 
     return 0
+
 
 def part2(numbers, cards):
     for number in numbers:
@@ -26,13 +26,13 @@ def part2(numbers, cards):
                 for ind3, bingo_number in enumerate(row):
                     if bingo_number == number:
                         cards[ind][ind2][ind3] = -1
-        #print(cards)
-        bingo_or_not, ind = checkBingo(cards)
-        while(bingo_or_not and len(cards) > 1):
+        print(cards)
+        bingo_or_not, ind = check_bingo(cards)
+        while bingo_or_not and len(cards) > 1:
             cards.pop(ind)
-            bingo_or_not, ind = checkBingo(cards)
+            bingo_or_not, ind = check_bingo(cards)
 
-        if(bingo_or_not and len(cards) == 1):
+        if bingo_or_not and len(cards) == 1:
             numbers2 = []
             for row in cards[ind]:
                 for n in row:
@@ -41,7 +41,8 @@ def part2(numbers, cards):
 
     return 0
 
-def checkBingo(cards):
+
+def check_bingo(cards):
     for ind, card in enumerate(cards):
         for row in card:
             if all(elem == -1 for elem in row):
@@ -54,8 +55,6 @@ def checkBingo(cards):
             if bingo:
                 return True, ind
     return False, 0
-
-
 
 
 if __name__ == '__main__':
