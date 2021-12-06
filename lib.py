@@ -18,6 +18,12 @@ def read_input_list_line(path):
         data.append(line.strip("\n"))
     return data
 
+def read_input_list_single_line(path):
+    path = os.path.dirname(os.getcwd()) + "/input/" + path
+    f = open(path)
+    data = f.readline().strip("\n").split(',')
+    return data
+
 
 def read_input_bingo(path):
     path = os.path.dirname(os.getcwd()) + "/input/" + path
