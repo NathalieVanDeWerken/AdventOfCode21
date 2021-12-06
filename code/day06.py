@@ -1,6 +1,5 @@
 from lib import read_input_list_single_line
 
-
 def part1(data):
     return count_fish(data, 80)
 
@@ -36,5 +35,5 @@ def count_fish_naive(data, days):
 
 
 if __name__ == '__main__':
-    print(part1(read_input_list_single_line("day6.txt")))
-    print(part2(read_input_list_single_line("day6.txt")))
+    print(part1(read_input_list_single_line("day06.txt")))
+    print(part2(read_input_list_single_line("day06.txt")))

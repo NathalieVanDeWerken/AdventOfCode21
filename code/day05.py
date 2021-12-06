@@ -36,5 +36,5 @@ def fill_grid(data, diagonal):
 
 
 if __name__ == '__main__':
-    print(part1(read_input_list_line("day5.txt")))
-    print(part2(read_input_list_line("day5.txt")))
+    print(part1(read_input_list_line("day05.txt")))
+    print(part2(read_input_list_line("day05.txt")))

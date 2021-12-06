@@ -26,7 +26,6 @@ def part2(numbers, cards):
                 for ind3, bingo_number in enumerate(row):
                     if bingo_number == number:
                         cards[ind][ind2][ind3] = -1
-        print(cards)
         bingo_or_not, ind = check_bingo(cards)
         while bingo_or_not and len(cards) > 1:
             cards.pop(ind)
@@ -58,5 +57,5 @@ def check_bingo(cards):
 
 
 if __name__ == '__main__':
-    print(part1(read_input_bingo("day4.txt")[0], read_input_bingo("day4.txt")[1]))
-    print(part2(read_input_bingo("day4.txt")[0], read_input_bingo("day4.txt")[1]))
+    print(part1(read_input_bingo("day04.txt")[0], read_input_bingo("day04.txt")[1]))
+    print(part2(read_input_bingo("day04.txt")[0], read_input_bingo("day04.txt")[1]))

@@ -18,5 +18,5 @@ def part2(data):
 
 
 if __name__ == '__main__':
-    print(part1(read_input_list_int("day1.txt")))
-    print(part2(read_input_list_int("day1.txt")))
+    print(part1(read_input_list_int("day01.txt")))
+    print(part2(read_input_list_int("day01.txt")))
