@@ -22,6 +22,14 @@ def part1_optimized(data):
     return result
 
 
+def part1_oneliner(data):
+    return min(sum(abs(x - height) for x in data) for height in range(min(data), max(data)))
+
+
+def part2_oneliner(data):
+    return min(sum(abs(x - height)*(abs(x - height) + 1) // 2 for x in data) for height in range(min(data), max(data)))
+
+
 def part2(data):
     minimal_result = sys.maxsize
     for height in range(min(data), max(data) + 1):
@@ -33,5 +41,5 @@ def part2(data):
 
 
 if __name__ == '__main__':
-    print(part1_optimized(read_input_list_single_line("day07_small.txt")))
-    print(part2(read_input_list_single_line("day07.txt")))
+    print(part1_oneliner(read_input_list_single_line("day07.txt")))
+    print(part2_oneliner(read_input_list_single_line("day07.txt")))
