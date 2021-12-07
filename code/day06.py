@@ -1,5 +1,6 @@
 from lib import read_input_list_single_line
 
+
 def part1(data):
     return count_fish(data, 80)
 
@@ -25,12 +26,13 @@ def count_fish_naive(data, days):
     for x in data:
         fish.append(x)
     for i in range(0, days):
+        print(i)
         for ind, timer in enumerate(fish):
             if timer == 0:
                 fish[ind] = 6
                 fish.append(9)
             else:
-                fish[timer] -= 1
+                fish[ind] -= 1
     return len(fish)
 
 
