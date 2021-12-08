@@ -3,7 +3,7 @@ from lib import read_input_bingo
 
 def part1(numbers, cards):
     for number in numbers:
-        update_cards(numbers, cards, number)
+        update_cards(cards, number)
         bingo_or_not, ind = check_bingo(cards)
         if bingo_or_not:
             return number * sum(list(filter(lambda x: x != -1, [num for row in cards[ind] for num in row])))
@@ -13,7 +13,7 @@ def part1(numbers, cards):
 
 def part2(numbers, cards):
     for number in numbers:
-        update_cards(numbers, cards, number)
+        update_cards(cards, number)
         bingo_or_not, ind = check_bingo(cards)
         while bingo_or_not and len(cards) > 1:
             cards.pop(ind)
@@ -25,7 +25,7 @@ def part2(numbers, cards):
     return 0
 
 
-def update_cards(numbers, cards, current_number):
+def update_cards(cards, current_number):
     for ind, card in enumerate(cards):
         for ind2, row in enumerate(card):
             for ind3, bingo_number in enumerate(row):
