@@ -3,42 +3,34 @@ from lib import read_input_bingo
 
 def part1(numbers, cards):
     for number in numbers:
-        for ind, card in enumerate(cards):
-            for ind2, row in enumerate(card):
-                for ind3, bingo_number in enumerate(row):
-                    if bingo_number == number:
-                        cards[ind][ind2][ind3] = -1
+        update_cards(numbers, cards, number)
         bingo_or_not, ind = check_bingo(cards)
         if bingo_or_not:
-            numbers2 = []
-            for row in cards[ind]:
-                for n in row:
-                    numbers2.append(n)
-            return number * sum(list(filter(lambda x: x != -1, numbers2)))
+            return number * sum(list(filter(lambda x: x != -1, [num for row in cards[ind] for num in row])))
 
     return 0
 
 
 def part2(numbers, cards):
     for number in numbers:
-        for ind, card in enumerate(cards):
-            for ind2, row in enumerate(card):
-                for ind3, bingo_number in enumerate(row):
-                    if bingo_number == number:
-                        cards[ind][ind2][ind3] = -1
+        update_cards(numbers, cards, number)
         bingo_or_not, ind = check_bingo(cards)
         while bingo_or_not and len(cards) > 1:
             cards.pop(ind)
             bingo_or_not, ind = check_bingo(cards)
 
         if bingo_or_not and len(cards) == 1:
-            numbers2 = []
-            for row in cards[ind]:
-                for n in row:
-                    numbers2.append(n)
-            return number * sum(list(filter(lambda x: x != -1, numbers2)))
+            return number * sum(list(filter(lambda x: x != -1, [num for row in cards[ind] for num in row])))
 
     return 0
+
+
+def update_cards(numbers, cards, current_number):
+    for ind, card in enumerate(cards):
+        for ind2, row in enumerate(card):
+            for ind3, bingo_number in enumerate(row):
+                if bingo_number == current_number:
+                    cards[ind][ind2][ind3] = -1
 
 
 def check_bingo(cards):
