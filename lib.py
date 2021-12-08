@@ -41,3 +41,15 @@ def read_input_bingo(path):
             current_card.append(list([int(i) for i in list(line.lstrip().strip("\n").split())]))
     cards.append(current_card)
     return numbers, cards
+
+
+def read_input_digits(path):
+    path = os.path.dirname(os.getcwd()) + "/input/" + path
+    f = open(path)
+    digits = []
+    output = []
+    for line in f:
+        segments = line.split(" | ")
+        digits.append(segments[0].split(" "))
+        output.append(segments[1].strip("\n").split(" "))
+    return digits, output

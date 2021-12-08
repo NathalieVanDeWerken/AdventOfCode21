@@ -27,7 +27,7 @@ def part1_oneliner(data):
 
 
 def part2_oneliner(data):
-    return min(sum(abs(x - height)*(abs(x - height) + 1) // 2 for x in data) for height in range(min(data), max(data)))
+    return min(sum(abs(x - height) * (abs(x - height) + 1) // 2 for x in data) for height in range(min(data), max(data)))
 
 
 def part2(data):
