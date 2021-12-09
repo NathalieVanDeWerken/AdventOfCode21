@@ -18,15 +18,15 @@ def part2(data, output):
         all_characters = [char for digit in x for char in digit]
         mappings = defaultdict()
 
-        segment_maps_to_a = next(
-            iter(set(find_digit_with_n_occurrences(x, 3)) - set(find_digit_with_n_occurrences(x, 2))))
+        segment_maps_to_a = next(iter(set(find_digit_with_len_n(x, 3))
+                                      - set(find_digit_with_len_n(x, 2))))
         segment_maps_to_b = find_char_with_n_occurrences(all_characters, 6)
         segment_maps_to_c = next(iter(set(find_char_with_n_occurrences_multiple(all_characters, 8))
                                       - set(segment_maps_to_a)))
         segment_maps_to_e = find_char_with_n_occurrences(all_characters, 4)
         segment_maps_to_f = find_char_with_n_occurrences(all_characters, 9)
-        segment_maps_to_d = next(
-            iter(set(find_digit_with_n_occurrences(x, 4)) - {segment_maps_to_b, segment_maps_to_c, segment_maps_to_f}))
+        segment_maps_to_d = next(iter(set(find_digit_with_len_n(x, 4))
+                                      - {segment_maps_to_b, segment_maps_to_c, segment_maps_to_f}))
         segment_maps_to_g = next(iter(set(find_char_with_n_occurrences_multiple(all_characters, 7))
                                       - set(segment_maps_to_d)))
 
@@ -51,7 +51,7 @@ def find_char_with_n_occurrences(data, n):
             return char
 
 
-def find_digit_with_n_occurrences(data, n):
+def find_digit_with_len_n(data, n):
     for digit in data:
         if len(digit) == n:
             return list(digit)

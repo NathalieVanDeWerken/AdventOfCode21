@@ -53,3 +53,12 @@ def read_input_digits(path):
         digits.append(segments[0].split(" "))
         output.append(segments[1].strip("\n").split(" "))
     return digits, output
+
+
+def read_input_heights(path):
+    path = os.path.dirname(os.getcwd()) + "/input/" + path
+    f = open(path)
+    result = []
+    for line in f:
+        result.append([int(y) for y in line.strip("\n")])
+    return result
