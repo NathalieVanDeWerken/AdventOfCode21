@@ -2,7 +2,7 @@ from lib import read_input_heights
 
 
 def part1(data):
-    return sum(data[x[0]][x[1]] + 1 for x in find_all_lows(data))
+    return sum(data[x][y] + 1 for x, y in find_all_lows(data))
 
 
 def part2(data):
@@ -15,21 +15,21 @@ def part2(data):
 def find_all_lows(data):
     result = []
 
-    for indy, row in enumerate(data):
-        for indx, number in enumerate(row):
+    for indx, row in enumerate(data):
+        for indy, number in enumerate(row):
             absolute_min = True
 
-            if (indy - 1) >= 0 and data[indy - 1][indx] <= number:
+            if (indx - 1) >= 0 and data[indx - 1][indy] <= number:
                 absolute_min = False
-            if (indx - 1) >= 0 and data[indy][indx - 1] <= number:
+            if (indy - 1) >= 0 and data[indx][indy - 1] <= number:
                 absolute_min = False
-            if (indx + 1) < len(row) and data[indy][indx + 1] <= number:
+            if (indy + 1) < len(row) and data[indx][indy + 1] <= number:
                 absolute_min = False
-            if (indy + 1) < len(data) and data[indy + 1][indx] <= number:
+            if (indx + 1) < len(data) and data[indx + 1][indy] <= number:
                 absolute_min = False
 
             if absolute_min:
-                result.append((indy, indx))
+                result.append((indx, indy))
 
     return result
 
