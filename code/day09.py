@@ -1,4 +1,4 @@
-from lib import read_input_heights
+from lib import read_input_2d_array
 
 
 def part1(data):
@@ -61,5 +61,5 @@ def find_size(i, j, data):
 
 
 if __name__ == '__main__':
-    print(part1(read_input_heights("day09.txt")))
-    print(part2(read_input_heights("day09.txt")))
+    print(part1(read_input_2d_array("day09.txt")))
+    print(part2(read_input_2d_array("day09.txt")))

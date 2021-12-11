@@ -55,7 +55,7 @@ def read_input_digits(path):
     return digits, output
 
 
-def read_input_heights(path):
+def read_input_2d_array(path):
     path = os.path.dirname(os.getcwd()) + "/input/" + path
     f = open(path)
     result = []
