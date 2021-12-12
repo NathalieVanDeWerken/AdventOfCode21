@@ -64,6 +64,7 @@ def read_input_2d_array(path):
         result.append([int(y) for y in line.strip("\n")])
     return result
 
+
 def read_input_graphs(path):
     path = os.path.dirname(os.getcwd()) + "/input/" + path
     f = open(path)
