@@ -1,4 +1,5 @@
 import os
+from collections import defaultdict
 
 
 def read_input_list_int(path):
@@ -61,4 +62,14 @@ def read_input_2d_array(path):
     result = []
     for line in f:
         result.append([int(y) for y in line.strip("\n")])
+    return result
+
+def read_input_graphs(path):
+    path = os.path.dirname(os.getcwd()) + "/input/" + path
+    f = open(path)
+    result = defaultdict(list)
+    for line in f:
+        line2 = line.split('-')
+        result[line2[0]].append(line2[1].strip("\n"))
+        result[line2[1].strip("\n")].append(line2[0])
     return result
